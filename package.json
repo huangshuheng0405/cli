@@ -1,0 +1,38 @@
+{
+  "name": "cli-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:es": "eslint --config eslint.config.mjs",
+    "lint:spell": "cspell lint --no-progress --show-suggestions --show-context",
+    "commit": "git-cz",
+    "prepare": "husky"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-git"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.57.1",
+    "eslint": "^10.0.3",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "tsup": "^8.5.1",
+    "typescript-eslint": "^8.57.1"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "commitizen": "^4.3.1",
+    "cspell": "^9.7.0",
+    "cz-git": "^1.12.0",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7"
+  }
+}

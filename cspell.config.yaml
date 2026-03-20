@@ -1,0 +1,22 @@
+{
+  'version': '0.2',
+  'language': 'en',
+  'files': ['**'],
+  'words':
+    ['pnpm', 'vitepress', 'tsconfig', 'miaoma', 'tsup', 'esbuild', 'eslint'],
+  'ignorePaths':
+    [
+      'node_modules',
+      'dist',
+      '**/dist/**',
+      'pnpm-lock.yaml',
+      'package-lock.json',
+      'yarn.lock',
+      '.cspell/words.txt'
+    ],
+  'dictionaryDefinitions':
+    [
+      { 'name': 'project-words', 'path': '.cspell/words.txt', 'addWords': true }
+    ],
+  'dictionaries': ['project-words']
+}
