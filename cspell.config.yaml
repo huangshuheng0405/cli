@@ -1,7 +1,7 @@
 {
   'version': '0.2',
   'language': 'en',
-  'files': ['**'],
+  'files': ['packages/cli/**'],
   'words':
     ['pnpm', 'vitepress', 'tsconfig', 'miaoma', 'tsup', 'esbuild', 'eslint'],
   'ignorePaths':

@@ -1,5 +1,5 @@
 // ESM
-import { logger } from '../../utils/logger'
+import { logger } from '../../utils/logger.js'
 import pkg from '../../../package.json'
 import picocolors from 'picocolors'
 import { Command } from 'commander'
@@ -16,7 +16,7 @@ export function info(program: Command) {
       // logger.error(new Error('This is an example error. Everything is fine!'))
       logger.box('huangshuheng')
 
-      logger.log(picocolors.bgGreen(`Product: mimao CLI v${pkg.version}`))
+      logger.log(picocolors.bgGreen(`Product: hsh CLI v${pkg.version}`))
       logger.log(picocolors.green(`Author: hsh`))
       logger.log(picocolors.underline(`License: ${pkg.license}`))
     })

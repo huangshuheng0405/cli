@@ -38,10 +38,13 @@ const loadLocalTemplate = async (params: LoadTemplateParams) => {
  */
 const loadRemoteTemplate = async (params: LoadTemplateParams) => {
   const { dir } = await downloadTemplate(
+    // giget 尝试解压文件 所以链接必须是一个压缩包的地址
+    // 改用gh前缀 会触发专门的api去下载 .tar.gz 存档
     'gh:huangshuheng0405/javascript#main',
     {
       dir: `${process.cwd()}/.temp`,
       force: true
+      // 确保 .temp 目录中存在之前下载失败的残留文件 会被强制覆盖 保证下载环境干净
     }
   )
 

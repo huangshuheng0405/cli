@@ -27,10 +27,13 @@ var loadLocalTemplate = async (params) => {
 };
 var loadRemoteTemplate = async (params) => {
   const { dir } = await downloadTemplate(
+    // giget 尝试解压文件 所以链接必须是一个压缩包的地址
+    // 改用gh前缀 会触发专门的api去下载 .tar.gz 存档
     "gh:huangshuheng0405/javascript#main",
     {
       dir: `${process.cwd()}/.temp`,
       force: true
+      // 确保 .temp 目录中存在之前下载失败的残留文件 会被强制覆盖 保证下载环境干净
     }
   );
   await copy(dir, `${process.cwd()}/${params.projectName}`);
@@ -121,7 +124,7 @@ function info(program3) {
     logger.warn("A new version of consola is available: 3.0.1");
     logger.success("Project built!");
     logger.box("huangshuheng");
-    logger.log(picocolors2.bgGreen(`Product: mimao CLI v${package_default.version}`));
+    logger.log(picocolors2.bgGreen(`Product: hsh CLI v${package_default.version}`));
     logger.log(picocolors2.green(`Author: hsh`));
     logger.log(picocolors2.underline(`License: ${package_default.license}`));
   });
@@ -168,10 +171,10 @@ function greet(program3) {
     const genderRefs = await prompts2({
       type: "select",
       name: "gender",
-      message: "Waht is your gender?",
+      message: "What is your gender?",
       choices: [
         { title: "nan", value: "nan" },
-        { title: "nu", valuea: "nv" }
+        { title: "nu", value: "nv" }
       ]
     });
     logger.log(

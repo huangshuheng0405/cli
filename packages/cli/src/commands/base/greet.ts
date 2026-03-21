@@ -1,5 +1,5 @@
 import { Command } from 'commander'
-import { logger } from '../../utils/logger'
+import { logger } from '../../utils/logger.js'
 import prompts from 'prompts'
 
 export function greet(program: Command) {
@@ -33,10 +33,10 @@ export function greet(program: Command) {
       const genderRefs = await prompts({
         type: 'select',
         name: 'gender',
-        message: 'Waht is your gender?',
+        message: 'What is your gender?',
         choices: [
           { title: 'nan', value: 'nan' },
-          { title: 'nu', valuea: 'nv' }
+          { title: 'nu', value: 'nv' }
         ]
       })
 
