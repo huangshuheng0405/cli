@@ -1,0 +1,15 @@
+[6n[?9001h[?1004h[m]0;C:\Windows\system32\cmd.exe[?25h]0;C:\Windows\system32\cmd.exe [?25l
+> cli@1.0.1 build D:\miaoma\cli-demo\packages\cli
+> tsup[5;1H[?25h[34mCLI [mBuilding entry: src/index.ts
+[34mCLI [mUsing tsconfig: tsconfig.json[34m
+CLI [mtsup v8.5.1[34m
+CLI [mUsing tsup config: D:\miaoma\cli-demo\packages\cli\tsup.config.ts[34m
+CLI [mTarget: es2022[34m
+CLI [mCleaning output folder[34m
+ESM [mBuild start
+[32mESM [m[1mdist\index.js [32m[22m6.90 KB[K[m
+[32mESM [m⚡️ Build success in 15ms
+[34mDTS [mBuild start
+[32mDTS [m⚡️ Build success in 575ms
+[32mDTS [m[1mdist\index.d.ts [32m[22m108.00 B[m
+[?9001l[?1004l

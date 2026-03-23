@@ -50,8 +50,8 @@ var loadTemplate = async (params) => {
 // src/commands/base/create.ts
 import prompts from "prompts";
 function create(program3) {
-  logger.log("\u521B\u5EFA\u9879\u76EE");
   return program3.createCommand("create").description("create project").arguments("<name>").option("-t, --template <template>", "template name").action(async (projectName, options) => {
+    logger.log("\u521B\u5EFA\u9879\u76EE");
     logger.info(
       `create projects, name:${projectName}, ${JSON.stringify(options)}`
     );
@@ -69,8 +69,22 @@ function create(program3) {
       });
       template = framework;
     }
-    logger.info(picocolors.bgCyan("create react ts project"));
-    loadTemplate({ projectName, templateName: template, local: false });
+    const { source } = await prompts({
+      type: "select",
+      name: "source",
+      message: "please select local or remote template",
+      choices: [
+        { title: "local", value: "local" },
+        { title: "remote", value: "remote" }
+      ]
+    });
+    if (!source) return;
+    logger.info(picocolors.bgCyan(`create ${template} project`));
+    loadTemplate({
+      projectName,
+      templateName: template,
+      local: source === "local"
+    });
   });
 }
 
@@ -82,8 +96,8 @@ function registerCommand(fn1) {
 
 // package.json
 var package_default = {
-  name: "cli",
-  version: "1.0.1",
+  name: "cli-huangshuheng",
+  version: "1.0.2",
   description: "",
   main: "index.js",
   module: "index.js",
@@ -97,7 +111,8 @@ var package_default = {
   },
   scripts: {
     dev: "tsup --watch",
-    build: "tsup"
+    build: "tsup",
+    "publish-npm": "npm publish --access public"
   },
   keywords: [],
   author: "",
@@ -131,16 +146,38 @@ function info(program3) {
 }
 
 // src/commands/base/serve.ts
+import { spawn } from "child_process";
 function serve(program3) {
   return program3.createCommand("serve").description("serve project").action(() => {
     logger.log("\u542F\u52A8\u9879\u76EE");
+    const command = "npm";
+    const params = ["run", "dev"];
+    const child = spawn(command, params, {
+      stdio: "inherit",
+      shell: process.platform === "win32"
+      // 在 windows 系统下开启 shell 模式以正确识别 npm.cmd
+    });
+    child.on("close", (code) => {
+      logger.log(`\u5B50\u8FDB\u7A0B\u9000\u51FA\uFF0C\u9000\u51FA\u7801L: ${code}`);
+    });
   });
 }
 
 // src/commands/base/build.ts
+import { spawn as spawn2 } from "child_process";
 function build(program3) {
   return program3.createCommand("build").description("build project").action(() => {
     logger.info("build projects");
+    const command = "npm";
+    const params = ["run", "build"];
+    const child = spawn2(command, params, {
+      stdio: "inherit",
+      shell: process.platform === "win32"
+      // 在 windows 系统下开启 shell 模式以正确识别 npm.cmd
+    });
+    child.on("close", (code) => {
+      logger.log(`\u5B50\u8FDB\u7A0B\u9000\u51FA\uFF0C\u9000\u51FA\u7801\uFF1A${code}`);
+    });
   });
 }
 
@@ -183,15 +220,34 @@ function greet(program3) {
   });
 }
 
+// src/commands/base/preview.ts
+import { spawn as spawn3 } from "child_process";
+function preview(program3) {
+  return program3.createCommand("preview").description("preview project").action(() => {
+    logger.info("preview projects");
+    const command = "npm";
+    const params = ["run", "preview"];
+    const child = spawn3(command, params, {
+      stdio: "inherit",
+      shell: process.platform === "win32"
+      // 在 windows 系统下开启 shell 模式以正确识别 npm.cmd
+    });
+    child.on("close", (code) => {
+      logger.log(`\u5B50\u8FDB\u7A0B\u9000\u51FA\uFF0C\u9000\u51FA\u7801\uFF1A${code}`);
+    });
+  });
+}
+
 // src/commands/index.ts
 registerCommand(create);
 registerCommand(info);
 registerCommand(serve);
 registerCommand(build);
 registerCommand(greet);
+registerCommand(preview);
 
 // src/cli.ts
-program2.version("0.0.1").name("miaoma");
+program2.version("0.0.1").name("hsh");
 var run = (args) => {
   program2.parse(args);
 };

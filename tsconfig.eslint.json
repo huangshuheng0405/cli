@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true // 不要生成任何 js 文件
   },
   "include": ["packages/**/*", "apps/**/*"]
 }

@@ -7,12 +7,15 @@ import { info } from './base/info.js'
 import { serve } from './base/serve.js'
 import { build } from './base/build.js'
 import { greet } from './base/greet.js'
+import { preview } from './base/preview.js'
 
+// 注册命令
 registerCommand(create)
 registerCommand(info)
 registerCommand(serve)
 registerCommand(build)
 registerCommand(greet)
+registerCommand(preview)
 
 // /**
 //  * 命令接口

@@ -1,6 +1,6 @@
 {
-  "name": "cli",
-  "version": "1.0.1",
+  "name": "cli-huangshuheng",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "module": "index.js",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup"
+    "build": "tsup",
+    "publish-npm": "npm publish --access public"
   },
   "keywords": [],
   "author": "",

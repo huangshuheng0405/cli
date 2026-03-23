@@ -2,17 +2,17 @@ import { Command } from 'commander'
 import { logger } from '../../utils/logger.js'
 import { spawn } from 'node:child_process'
 
-export function build(program: Command) {
+export function preview(program: Command) {
   return program
-    .createCommand('build')
-    .description('build project')
+    .createCommand('preview')
+    .description('preview project')
     .action(() => {
       // 执行项目的打包命令
-      // npm run build
-      logger.info('build projects')
+      // npm run preview
+      logger.info('preview projects')
 
       const command = 'npm'
-      const params = ['run', 'build']
+      const params = ['run', 'preview']
 
       const child = spawn(command, params, {
         stdio: 'inherit',

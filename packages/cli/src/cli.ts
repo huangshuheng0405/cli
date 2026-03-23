@@ -5,6 +5,8 @@
 import { program } from 'commander'
 import './commands/index.js'
 import './utils/loadTemplate.js'
+
+// import 的时候会执行代码  只会执行第一次 然后缓存 之后直接读取缓存不会执行
 // import { greet } from './commands/base/greet'
 // import { info } from './commands/base/info'
 
@@ -31,8 +33,6 @@ import './utils/loadTemplate.js'
 //   console.log(rest)
 // }
 
-program.version('0.0.1').name('miaoma')
-
 // // 创建项目
 // program.command('create').description('创建项目').action(create)
 // // 构建项目
@@ -46,8 +46,12 @@ program.version('0.0.1').name('miaoma')
 // // 打印信息
 // program.command('info').description('打印信息').action(info)
 
+program.version('0.0.1').name('hsh')
+
 export const run = (args: string[]) => {
   // console.log('run', process.argv.slice(2))
 
   program.parse(args)
+  // 输如 hsh create my-app 就是 ['node', 'hsh', 'create', 'my=app']
+  // 拿着传入的 args 对比之前定义的命令 如 create build 等 一旦匹配成功 就会调用 action 函数
 }

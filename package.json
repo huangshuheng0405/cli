@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "packageManager": "pnpm@10.32.1",
   "scripts": {
     "lint:es": "eslint --config eslint.config.mjs",
     "lint:spell": "cspell lint --no-progress --show-suggestions --show-context",
     "commit": "git-cz",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "publish:npm": "turbo publish-npm"
   },
   "config": {
     "commitizen": {
@@ -21,7 +25,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
-    "eslint": "^10.0.3",
+    "eslint": "^10.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "tsup": "^8.5.1",
     "typescript-eslint": "^8.57.1"
@@ -33,6 +37,7 @@
     "cspell": "^9.7.0",
     "cz-git": "^1.12.0",
     "globals": "^17.4.0",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "turbo": "^2.8.20"
   }
 }
