@@ -97,7 +97,7 @@ function registerCommand(fn1) {
 // package.json
 var package_default = {
   name: "cli-huangshuheng",
-  version: "1.0.2",
+  version: "1.0.3",
   description: "",
   main: "index.js",
   module: "index.js",
